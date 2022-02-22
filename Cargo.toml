@@ -1,0 +1,13 @@
+[package]
+name = "print_monitor"
+version = "0.1.0"
+authors = ["KHTangent"]
+edition = "2021"
+
+[dependencies]
+dotenv = "0.15.0"
+
+[dependencies.opencv]
+version = "0.63.0"
+default-features = false
+features = ["videoio", "imgproc", "imgcodecs"]
