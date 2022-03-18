@@ -2,12 +2,14 @@ mod camera_handler;
 mod error;
 use camera_handler::CameraHandler;
 use dotenv::dotenv;
+use error::PmResult;
 use opencv::core::Vector;
 use opencv::imgcodecs::imwrite;
 use opencv::prelude::*;
 use std::env;
 
-fn main() {
+#[tokio::main]
+async fn main() -> PmResult<()> {
 	dotenv().ok();
 	let camera_index = env::var("CAMERA_INDEX").unwrap_or(String::from("0"));
 	let camera_index =
@@ -19,4 +21,5 @@ fn main() {
 	}
 	let sf = Vector::<i32>::new();
 	imwrite("./saved.jpg", &mut frame, &sf).unwrap();
+	Ok(())
 }
