@@ -4,6 +4,7 @@ use std::fmt;
 
 pub type PmResult<T> = Result<T, PmError>;
 
+/// Custom error for PrintMonitor_client
 #[derive(fmt::Debug)]
 pub struct PmError {
 	kind: PmErrorKind,
