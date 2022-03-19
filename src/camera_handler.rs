@@ -9,9 +9,9 @@ pub struct CameraHandler {
 
 impl CameraHandler {
 	/// Creates a new camera handler
-	/// 
+	///
 	/// # Arguments
-	/// 
+	///
 	/// * `camera_id` - OpenCV camera ID. Usually you want 0, to use the system default camera
 	pub fn new(camera_id: i32) -> PmResult<CameraHandler> {
 		Ok(CameraHandler {
@@ -20,16 +20,16 @@ impl CameraHandler {
 	}
 
 	/// Gets a frame from the camera (i.e. takes a picture)
-	/// 
+	///
 	/// # Arguments
-	/// 
+	///
 	/// * `frame` - Mat struct to store the frame in
 	pub fn get_frame(&mut self, frame: &mut Mat) -> PmResult<()> {
 		self.cam.read(frame)?;
 		Ok(())
 	}
 
-	/// Some cameras don't work well right after startup, so this function just 
+	/// Some cameras don't work well right after startup, so this function just
 	/// takes a few pictures as "warm-up", and discards them
 	pub fn warmup(&mut self) -> PmResult<()> {
 		let mut frame = Mat::default();

@@ -24,3 +24,12 @@ impl From<opencv::Error> for PmError {
 		}
 	}
 }
+
+impl PmError {
+	pub fn internal(e: impl ToString) -> PmError {
+		PmError {
+			kind: PmErrorKind::Internal,
+			message: e.to_string(),
+		}
+	}
+}
