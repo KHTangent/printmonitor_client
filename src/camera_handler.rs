@@ -28,4 +28,14 @@ impl CameraHandler {
 		self.cam.read(frame)?;
 		Ok(())
 	}
+
+	/// Some cameras don't work well right after startup, so this function just 
+	/// takes a few pictures as "warm-up", and discards them
+	pub fn warmup(&mut self) -> PmResult<()> {
+		let mut frame = Mat::default();
+		for _ in 0..10 {
+			self.get_frame(&mut frame)?
+		}
+		Ok(())
+	}
 }
