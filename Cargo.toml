@@ -6,8 +6,10 @@ edition = "2021"
 
 [dependencies]
 dotenv = "0.15.0"
-tokio-tungstenite = "0.17.1"
+futures-util = "0.3"
 tokio = { version = "1.17.0", features = ["full"] }
+tokio-tungstenite = "0.17.1"
+url = "2.2.2"
 
 [dependencies.opencv]
 version = "0.63.0"
